@@ -110,8 +110,8 @@ That being said:
     import to import from the code under test, since this makes moving files
     easier.)
   - Leave `__init__.py` files empty and don't manipulate subpackage exports via
-    `__all__`. Imports should stay predictable and understandable. Avoid import
-    magic.
+    `__all__`. Imports should stay predictable and understandable. Avoid
+    manipulating PYTHONPATH and related import magic.
 - Tests:
   - Use Pytest. Don't wrap Pytest test functions in classes, unless necessary
     for some reason.
