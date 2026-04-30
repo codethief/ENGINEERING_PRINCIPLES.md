@@ -17,6 +17,9 @@ I use the file by putting the following in my AGENTS.md or CLAUDE.md:
     first thing, before doing anything else!
 ```
 
-Now, you shouldn't trust me with your prompts, so either download the file by
-hand or at least don't allow your agent to download the file without user
-confirmation.
+This way, I can manage the file centrally and in my downstream projects I can
+just tell my agent to pull the file again whenever it was updated upstream.
+
+Now, you shouldn't trust me with your prompts, so either put the file in your
+own repo or at least don't allow your agent to download the file from my repo
+without user confirmation.
