@@ -19,11 +19,11 @@
 
 # Type safety
 - Type safety is paramount. Disabling or working around the type checker through
-  `# type: ignore`, manual type casts, or resorting to dynamic types everywhere
-  (e.g. `dict.get()` in Python) etc. is a major code smell and usually indicates
-  that the types and interfaces have been designed incorrectly. In such cases,
-  reflect a bit on what's going on at a deeper level and what could be done
-  here.
+  `# type: ignore` comments, manual type casts, or resorting to dynamic types
+  everywhere (e.g. `dict.get()` in Python) etc. is a major code smell and
+  usually indicates that the types and interfaces have been designed
+  incorrectly. In such cases, reflect a bit on what's going on at a deeper level
+  and what could be done here.
 
 
 # Code & module structure
@@ -76,7 +76,7 @@ That being said:
 
 
 # Writing tests
-- Almost all code should be tested.
+- Almost all first-party code should be tested.
 - Whenever possible (depending on the language), files containing unit tests
   should be co-located with the code-under-test, e.g. in a `*_test.py` file
   (Python) or `*.test.ts` file (TypeScript).
@@ -89,8 +89,8 @@ That being said:
   as concise as possible but, if in doubt, prefer longer & clearly phrased names
   over short, possibly misleading ones.
 - Try to avoid mocking in tests. Instead, make dependencies in production code
-  explicit through function parameters, so that they can be easily injected by
-  tests.
+  explicit (e.g. through function parameters), so that tests can easily inject
+  fakes as needed.
 - For code with external dependencies (file system, database) and other side
   effects think carefully about how we want to go about testing:
   - Can we replace the database / file system dependency with an in-memory
@@ -107,7 +107,7 @@ That being said:
 - Imports:
   - Use absolute imports throughout. Absolute imports facilitate repository-wide
     string search. (Exception: In test files it makes sense to use a relative
-    import to import from the code under test, since this makes moving files
+    import to import from the module under test, since this makes moving files
     easier.)
   - Leave `__init__.py` files empty and don't manipulate subpackage exports via
     `__all__`. Imports should stay predictable and understandable. Avoid
